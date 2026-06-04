@@ -1,0 +1,514 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Deep Black Minimal Theme */
+:root {
+  /* Pure black backgrounds */
+  --background: 0 0% 0%;
+  --foreground: 0 0% 98%;
+  --card: 0 0% 6%;
+  --card-foreground: 0 0% 98%;
+  --popover: 0 0% 8%;
+  --popover-foreground: 0 0% 98%;
+
+  /* Primary - Neutral white text, minimal accent */
+  --primary: 0 0% 100%;
+  --primary-foreground: 0 0% 0%;
+
+  /* Secondary - Light gray */
+  --secondary: 0 0% 85%;
+  --secondary-foreground: 0 0% 0%;
+  
+  /* Muted - Subtle grays */
+  --muted: 0 0% 25%;
+  --muted-foreground: 0 0% 65%;
+  
+  /* Accent - Bright white */
+  --accent: 0 0% 100%;
+  --accent-foreground: 0 0% 0%;
+
+  /* Destructive - Red */
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 0%;
+
+  /* Border/Input/Ring - Neutral gray */
+  --border: 0 0% 20%;
+  --input: 0 0% 10%;
+  --ring: 0 0% 100%;
+
+  /* Radius */
+  --radius: 0.75rem;
+
+  /* Chart colors - Neutral palette */
+  --chart-1: 0 0% 100%;
+  --chart-2: 0 0% 85%;
+  --chart-3: 0 0% 70%;
+  --chart-4: 0 0% 55%;
+  --chart-5: 0 0% 40%;
+}
+
+.dark {
+  --background: 0 0% 0%;
+  --foreground: 0 0% 98%;
+  --card: 0 0% 6%;
+  --card-foreground: 0 0% 98%;
+  --popover: 0 0% 8%;
+  --popover-foreground: 0 0% 98%;
+  --primary: 0 0% 100%;
+  --primary-foreground: 0 0% 0%;
+  --secondary: 0 0% 85%;
+  --secondary-foreground: 0 0% 0%;
+  --muted: 0 0% 25%;
+  --muted-foreground: 0 0% 65%;
+  --accent: 0 0% 100%;
+  --accent-foreground: 0 0% 0%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 0%;
+  --border: 0 0% 20%;
+  --input: 0 0% 10%;
+  --ring: 0 0% 100%;
+  --chart-1: 0 0% 100%;
+  --chart-2: 0 0% 85%;
+  --chart-3: 0 0% 70%;
+  --chart-4: 0 0% 55%;
+  --chart-5: 0 0% 40%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Professional typography */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.025em;
+}
+
+h1 {
+  font-size: 2.25rem;
+  line-height: 2.5rem;
+}
+
+h2 {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
+/* Enhanced focus states */
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+}
+
+/* Professional shadows */
+.professional-shadow {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+.professional-shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+/* Quantum-specific styles */
+.quantum-gate {
+  transition: all 0.2s ease-in-out;
+}
+
+.quantum-gate:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
+}
+
+.circuit-wire {
+  stroke: hsl(var(--border));
+  stroke-width: 2;
+}
+
+.qubit-label {
+  fill: hsl(var(--muted-foreground));
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Animation utilities */
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.3s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--muted));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted-foreground) / 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground) / 0.5);
+}
+
+/* Minimal flat styling */
+.quantum-glow {
+  border: 1px solid hsl(var(--border));
+  transition: all 0.3s ease;
+}
+
+.quantum-glow:hover {
+  border-color: hsl(var(--foreground) / 0.3);
+}
+
+/* Circuit Canvas Styling */
+.circuit-canvas {
+  background: hsl(var(--background));
+  position: relative;
+  overflow: hidden;
+}
+
+.circuit-canvas::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    linear-gradient(90deg, hsl(var(--border) / 0.03) 1px, transparent 1px),
+    linear-gradient(0deg, hsl(var(--border) / 0.03) 1px, transparent 1px);
+  background-size: 80px 80px;
+  background-position: 0 0;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.circuit-canvas > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Qubit Label Styling */
+.qubit-label {
+  background: linear-gradient(135deg, hsl(var(--card)), hsl(var(--card) / 0.8));
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.375rem;
+  padding: 0.5rem 0.5rem;
+  font-family: 'Monaco', monospace;
+  font-weight: 600;
+  font-size: 0.875rem;
+  color: hsl(var(--foreground));
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+  min-width: 96px;
+  text-align: center;
+}
+
+.qubit-label:hover {
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
+  transform: translateY(-1px);
+}
+
+/* Gate Base Styling */
+.quantum-gate-box {
+  border: 2px solid hsl(var(--border));
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.875rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  user-select: none;
+}
+
+.quantum-gate-box:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.quantum-gate-box.selected {
+  box-shadow: 0 0 0 3px hsl(var(--background)), 
+              0 0 0 5px hsl(var(--foreground) / 0.5);
+}
+
+/* Gate Drop Zone */
+.gate-drop-zone {
+  border: 1px dashed hsl(var(--border) / 0.5);
+  border-radius: 0.5rem;
+  transition: all 0.2s ease;
+  background: transparent;
+}
+
+.gate-drop-zone.drag-over {
+  border: 2px solid hsl(var(--foreground) / 0.5);
+  background: hsl(var(--foreground) / 0.05);
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Quantum Wire Styling */
+.quantum-wire {
+  position: relative;
+  height: 2px;
+  background: linear-gradient(90deg, hsl(var(--border) / 0.3), hsl(var(--border) / 0.1));
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.15);
+}
+
+/* Control Dot */
+.control-dot {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 50%;
+  border: 3px solid hsl(var(--border));
+  background: hsl(var(--foreground));
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: all 0.2s ease;
+}
+
+.control-dot:hover {
+  transform: scale(1.2);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.4);
+}
+
+/* CNOT Target */
+.cnot-target {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  border: 4px solid hsl(var(--border));
+  background: hsl(var(--card));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: hsl(var(--foreground));
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.cnot-target:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.cnot-target.selected {
+  box-shadow: 0 0 0 3px hsl(var(--background)), 
+              0 0 0 5px hsl(var(--foreground) / 0.5),
+              0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Toolbar Button Group */
+.toolbar-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem;
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.toolbar-divider {
+  width: 1px;
+  height: 1.25rem;
+  background: hsl(var(--border) / 0.5);
+  margin: 0 0.25rem;
+}
+
+/* Circuit Header Enhancement */
+.circuit-header {
+  background: linear-gradient(180deg, hsl(var(--card) / 0.6), hsl(var(--card) / 0.4));
+  border-bottom: 1px solid hsl(var(--border));
+  backdrop-filter: blur(2px);
+}
+
+.circuit-header-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  color: hsl(var(--foreground));
+}
+
+/* Tab active state */
+[role="tab"][aria-selected="true"] {
+  color: hsl(var(--foreground));
+  border-bottom: 2px solid hsl(var(--foreground));
+}
+
+/* Header clean */
+header {
+  background: hsl(var(--card));
+  border-bottom: 1px solid hsl(var(--border));
+}
+
+/* Sidebar clean */
+aside {
+  background: hsl(var(--card));
+}
+
+/* Smooth button transitions */
+button, [role="button"] {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+button:hover {
+  transform: translateY(-1px);
+}
+
+/* Clean shadows for depth */
+.shadow-sm {
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3);
+}
+
+.shadow-md {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+}
+
+.shadow-lg {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.4), 0 4px 6px -2px rgba(0, 0, 0, 0.3);
+}
+
+.shadow-xl {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.4), 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+}
+
+/* Clean shadow for highlighted elements */
+.glow-shadow {
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+}
+
+/* Link styling */
+a {
+  color: hsl(var(--foreground));
+  text-decoration: underline;
+  transition: opacity 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+/* Spinner animation for loading states */
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spinner {
+  animation: spin 1s linear infinite;
+}
+
+/* Pulse animation */
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+.pulse {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Code block styling */
+code {
+  background: hsl(var(--input));
+  color: hsl(var(--foreground));
+  padding: 0.2em 0.4em;
+  border-radius: 0.25rem;
+  font-size: 0.85em;
+  font-family: 'Monaco', 'Menlo', 'Ubuntu Mono', monospace;
+}
+
+pre {
+  background: hsl(var(--card));
+  border: 1px solid hsl(var(--border));
+  border-radius: calc(var(--radius));
+  padding: 1rem;
+  overflow-x: auto;
+  margin: 1rem 0;
+}
+
+pre code {
+  background: none;
+  color: hsl(var(--foreground));
+  padding: 0;
+}
+
+/* Clean borders */
+.border-quantum {
+  border: 2px solid hsl(var(--border));
+}
+
+/* Badge styling */
+[role="status"],
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  background: hsl(var(--muted));
+  color: hsl(var(--foreground));
+  border: 1px solid hsl(var(--border));
+}
