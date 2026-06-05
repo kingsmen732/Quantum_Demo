@@ -1,0 +1,35 @@
+services:
+
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+
+    container_name: quantum-backend
+
+    ports:
+      - "8100:8000"
+
+    environment:
+      NVIDIA_VISIBLE_DEVICES: all
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility
+
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+
+    container_name: quantum-frontend
+
+    ports:
+      - "3100:3000"
+
+    environment:
+      NEXT_PUBLIC_BACKEND_URL: https://api.quantum.digitalfortress.in
+
+    depends_on:
+      - backend
+
+    restart: unless-stopped
