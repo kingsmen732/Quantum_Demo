@@ -78,13 +78,13 @@ npm install
 npm run dev
 ```
 
-The interface will be accessible at [http://localhost:3000](http://localhost:3000).
+Set `NEXT_PUBLIC_FRONTEND_URL` in `env.local` for the interface URL.
 
 ---
 
 ### 2. Backend Setup (Qiskit API)
 
-The backend provides density matrix computations, noise profiles, and advanced Qiskit simulator support. It runs on `http://localhost:8000`.
+Set `NEXT_PUBLIC_QISKIT_API_URL` in `env.local` for the backend URL.
 
 You can set up and run the backend using **uv** (recommended for speed and pyproject integration) or standard **pip**.
 
@@ -142,7 +142,7 @@ The backend exposing the FastAPI service contains the following endpoints:
 
 *   **Qiskit Aer Warning:** If `qiskit-aer` fails to install or is missing, the API will output a fallback warning and use `BasicSimulator`. Note that noise simulations will be disabled in fallback mode.
 *   **CORS Issues:** The backend API has Cross-Origin Resource Sharing (CORS) enabled by default for all origins (`*`) to ensure the frontend can fetch simulations locally.
-*   **Port Conflicts:** If port `8000` is already in use, you can run the server on a different port (e.g., `--port 8081`). Note that you would need to adjust the backend URLs in `components/quantum-circuit-builder.tsx` to match.
+*   **Port Conflicts:** If your backend port changes, update `NEXT_PUBLIC_QISKIT_API_URL` in `env.local` so the frontend points at the correct server.
 *   **Cache Clearing:** If the Next.js dev server behaves unexpectedly, you can clean your build cache:
     ```bash
     rm -rf .next node_modules

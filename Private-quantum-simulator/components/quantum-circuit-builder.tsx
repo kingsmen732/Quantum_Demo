@@ -10,6 +10,7 @@ import { Switch } from "@/components/ui/switch"
 import { useToast } from "@/components/ui/use-toast"
 import { Trash2, Play, Info, Link, Save, History, ChevronLeft, ChevronRight, RotateCcw, RotateCw, Download, Upload, HelpCircle } from "lucide-react"
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip"
+import { getQiskitApiUrl } from "@/lib/api"
 import { SaveCircuitDialog } from "./save-circuit-dialog"
 import { CircuitHistoryPanel, type SavedCircuit } from "./circuit-history-panel"
 
@@ -390,7 +391,7 @@ export function QuantumCircuitBuilder({
   useEffect(() => {
     const checkBackend = async () => {
       try {
-        const response = await fetch("http://localhost:8000/")
+        const response = await fetch(getQiskitApiUrl("/"))
         const data = await response.json()
         setBackendCapabilities({ has_aer: data.has_aer || false })
       } catch (error) {
@@ -579,7 +580,7 @@ export function QuantumCircuitBuilder({
       )
 
       try {
-        const response = await fetch("http://localhost:8000/simulate", {
+        const response = await fetch(getQiskitApiUrl("/simulate"), {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ 
@@ -1643,7 +1644,7 @@ export function QuantumCircuitBuilder({
                         if (e.target.value !== "custom") {
                           // Load preset from backend
                           try {
-                            const response = await fetch("http://localhost:8000/noise-presets")
+                            const response = await fetch(getQiskitApiUrl("/noise-presets"))
                             if (!response.ok) {
                               throw new Error(`HTTP ${response.status}`)
                             }
